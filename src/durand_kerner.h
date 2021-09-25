@@ -1,0 +1,8 @@
+//
+// Created by Meevere on 24.09.2021.
+//
+
+#ifndef POLYNOMS_DURAND_KERNER_H
+#define POLYNOMS_DURAND_KERNER_H
+
+#endif //POLYNOMS_DURAND_KERNER_H
