@@ -11,7 +11,6 @@
 #include <utility>
 
 using std::complex;
-typedef complex<float> c_t;
 
 void durand_kerner(const Polynomial<c_t>& poly, std::vector<c_t>& roots);
 void durand_kerner(const Polynomial<c_t>& poly, std::vector<c_t>& roots, unsigned times);

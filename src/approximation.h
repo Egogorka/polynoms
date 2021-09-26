@@ -11,7 +11,6 @@
 #include <utility>
 
 using std::complex;
-typedef complex<float> c_t;
 
 std::vector<c_t> get_approximate_roots(const Polynomial<c_t>& poly, std::pair<c_t,c_t> box, unsigned density);
 

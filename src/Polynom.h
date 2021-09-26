@@ -7,6 +7,9 @@
 
 #include <vector>
 #include <iostream>
+#include <complex>
+
+typedef std::complex<float> c_t;
 
 template <typename T>
 
@@ -23,6 +26,10 @@ public:
     // There is no default value for arbitrary type T, so no default constructor
     // UPDATE: Now we heavily rely on default constructor of T and use it as a "default value", thus can have a default constructor
     Polynomial(): coef(1, T()) {};
+
+    Polynomial(T value, unsigned index): coef(index+1, T()) {
+        coef[index] = value;
+    }
 
     explicit Polynomial(std::vector<T>& coef): coef(coef, T()) {};
     explicit Polynomial(unsigned size): coef(size, T()) {};
