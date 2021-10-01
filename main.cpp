@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "src/Polynom.h"
 #include <complex>
@@ -28,14 +29,29 @@ int main() {
     std::cout << "Polynomial at 1+1i : " << '\n';
     std::cout << poly1(1.0f + 1if) << std::endl << '\n';
 
-    std::vector<c_t> roots = {c_t(0.5,1),c_t(0.5, -1),c_t(-0.5,0.1),c_t(-0.5,-0.1)};
-    std::cout << "Durand-Kerner algo with random starting points (60 iterations) : " << std::endl;
-    std::cout << "Points in :" << roots << std::endl;
-    durand_kerner(poly1, roots, 60);
-    std::cout << "Points out :" << roots << std::endl << '\n';
+//    std::vector<c_t> roots = {c_t(0.5,1),c_t(0.5, -1),c_t(-0.5,0.1),c_t(-0.5,-0.1)};
+//    std::cout << "Durand-Kerner algo with random starting points (60 iterations) : " << std::endl;
+//    std::cout << "Points in :" << roots << std::endl;
+//    durand_kerner(poly1, roots, 60);
+//    std::cout << "Points out :" << roots << std::endl << '\n';
 
     auto roots2 = get_approximate_roots(poly1, std::make_pair(c_t(-1,-1),c_t(1,1)), 100);
     std::cout << "Approximation algo via min|p(x)| : " << '\n' << roots2 << std::endl;
+
+    std::fstream fout;
+    fout.open("../data/poly_information.txt", std::fstream::out);
+    fout << poly1 << '\n';
+    fout.close();
+
+    fout.open("../data/iterations.txt", std::fstream::out);
+    std::vector<c_t> roots = {c_t(0.5,1),c_t(0.5, -1),c_t(-0.5,0.1),c_t(-0.5,-0.1)};
+
+    for(unsigned i=0; i<15; ++i){
+        fout << roots << '\n';
+        durand_kerner(poly1, roots);
+    }
+
+    fout.close();
 
     return 0;
 
