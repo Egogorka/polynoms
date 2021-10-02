@@ -10,7 +10,7 @@ class Curve:
 		CLOSED_LOOP = 1
 		DISCONNECTED = 2
 
-	def __init__(self, ls: List[complex], type: Type):
+	def __init__(self, ls, type: Type):
 		self.points = ls
 		self.type = type
 
