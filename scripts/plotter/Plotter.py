@@ -1,8 +1,8 @@
 from typing import Tuple, List
 from graphics import *
 
-from linesdrawer import LinesDrawer
-from Curves import Curve
+from scripts.plotter.Curves import Curve
+from scripts.plotter.linesdrawer import LinesDrawer
 
 defaultDimensions = [1000, 800]
 defaultScale = [50.0, 50.0]

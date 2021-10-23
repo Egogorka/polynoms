@@ -2,6 +2,7 @@ import numpy as np
 from scripts.plotter.Curves import Curve
 from scripts.plotter.Plotter import Plotter
 
+
 if __name__ == "__main__":
 
     def convert_(fld):
